@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>White Bus Booking</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-image: url(https://wallpaperaccess.com/full/5932023.jpg);
+			background-size: cover;
+			background-position: center;
+			height: 100vh;
+			margin: 0;
+		}
+
+		header {
+			background-color: skyblue;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.booking-form {
+			background-color: #fff;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			width: 50%;
+			margin: 40px auto;
+		}
+
+		.booking-form label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		.booking-form input[type="text"], .booking-form input[type="date"], .booking-form input[type="time"], .booking-form input[type="number"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+		}
+
+		.booking-form input[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		.booking-form input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+
+		.response {
+			background-color: #fff;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			width: 50%;
+			margin: 40px auto;
+		}
+
+		.response h2 {
+			margin-top: 0;
+		}
+
+		#response-message {
+			color: #666;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>White Bus Booking</h1>
+	</header>
+	<main>
+		<section class="booking-form">
+			<h2>Book Your Ticket</h2>
+			<form>
+				<label for="from">From:</label>
+				<input type="text" id="from" name="from"><br><br>
+				<label for="to">To:</label>
+				<input type="text" id="to" name="to"><br><br>
+				<label for="date">Date:</label>
+				<input type="date" id="date" name="date"><br><br>
+				<label for="time">Time:</label>
+				<input type="time" id="time" name="time"><br><br>
+				<label for="passengers">Number of Passengers:</label>
+				<input type="number" id="passengers" name="passengers"><br><br>
+				<input type="submit" value="Book Now">
+			</form>
+		</section>
+		<section class="response">
+			<h2>Booking Response</h2>
+			<p id="response-message"></p>
+		</section>
+	</main>
+	<script>
+		const form = document.querySelector('.booking-form');
+		const responseMessage = document.querySelector('#response-message');
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const from = document.querySelector('#from').value;
+			const to = document.querySelector('#to').value;
+			const date = document.querySelector('#date').value;
+			const time = document.querySelector('#time').value;
+			const passengers = document.querySelector('#passengers').value;
+
+			// Simulate API call to book the ticket
+			setTimeout(() => {
+				if (from && to && date && time && passengers) {
+					responseMessage.textContent = `Your ticket from ${from} to ${to} on ${date} at ${time} for ${passengers} passengers has been booked successfully!`;
+				} else {
+					responseMessage.textContent = 'Please fill in all the fields!';
+				}
+			}, 2000);
+		});
+	</script>
+</body>
+</html>
