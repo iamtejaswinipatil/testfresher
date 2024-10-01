@@ -9,7 +9,7 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 EXPOSE 8082
 
 # Copy your WAR file into the Tomcat webapps directory
-COPY path-to-your-application.war /usr/local/tomcat/webapps/ROOT.war
+COPY path-to-your-application.war /usr/local/tomcat/webapps/testfresher.war
 
 # Change the Tomcat port to 8082 in the server.xml configuration
 RUN sed -i 's/port="8080"/port="8082"/g' /usr/local/tomcat/conf/server.xml
